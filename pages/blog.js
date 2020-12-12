@@ -19,13 +19,13 @@ const useStyles = makeStyles({
   },
 });
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (context) => {
   const client = new GraphQLClient(process.env.GRAPHCMS_API, {
     headers: {
       authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`
     }
   })
-  const { posts } = await client.request(query)
+  const { posts } = await client.request(query(context.preview))
 
   return {
     props: {

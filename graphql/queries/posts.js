@@ -1,6 +1,6 @@
-export const query = `
+export const query = (previewMode) => (`
   {
-    posts() {
+    posts(${previewMode ? 'stage:DRAFT' : ''}) {
       id
       slug
       title
@@ -12,4 +12,4 @@ export const query = `
       }
     }
   }
-`
+`)
