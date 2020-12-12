@@ -116,3 +116,5 @@ dist
 .pnp.*
 
 .env.local
+out_functions/
+out_publish/
